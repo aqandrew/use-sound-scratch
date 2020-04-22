@@ -5,10 +5,11 @@ import scratchSfx from '../src/sounds/scratch.mp3';
 
 function App() {
   const [lastKnownScrollTop, setLastKnownScrollTop] = useState(0);
+  const [isScrollingDown, setIsScrollingDown] = useState(false);
   const [play] = useSound(scratchSfx, {
     sprite: {
-      down: [66, 115],
-      up: [145, 160],
+      low: [66, 115],
+      high: [145, 160],
     },
   });
 
@@ -16,9 +17,17 @@ function App() {
     let scrollTop = event.target.scrollTop;
 
     if (scrollTop > lastKnownScrollTop) {
-      play({ id: 'up' });
+      if (!isScrollingDown) {
+        play({ id: 'high' });
+      }
+
+      setIsScrollingDown(true);
     } else {
-      play({ id: 'down' });
+      if (isScrollingDown) {
+        play({ id: 'low' });
+      }
+
+      setIsScrollingDown(false);
     }
 
     setLastKnownScrollTop(scrollTop <= 0 ? 0 : scrollTop);
