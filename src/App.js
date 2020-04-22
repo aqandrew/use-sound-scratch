@@ -1,9 +1,14 @@
 import React from 'react';
+import useSound from 'use-sound';
+
+import scratchSfx from '../src/sounds/scratch.mp3';
 
 function App() {
+  const [play] = useSound(scratchSfx);
+
   return (
     <div className="App">
-      <h1>Hello React!</h1>
+      <button onClick={play}>play sound</button>
     </div>
   );
 }
