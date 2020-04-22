@@ -8,11 +8,20 @@ body {
 }
 
 .App {
-  height: 200px;
+  height: 300px;
   overflow-y: scroll;
 }
 
 .inner {
   background: blueviolet;
-  height: 500px;
+  height: 1000px;
+}
+
+h1 {
+  margin: 0;
+  position: fixed;
+  left: 50%;
+  top: 150px;
+  transform: translate(-50%, -50%);
+  color: white;
 }

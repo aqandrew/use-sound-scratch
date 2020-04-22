@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useSound from 'use-sound';
 
-import scratchSfx from '../src/sounds/scratch.mp3';
+import scratchSfx from './sounds/scratch.mp3';
 
 function App() {
   const [lastKnownScrollTop, setLastKnownScrollTop] = useState(0);
@@ -35,6 +35,7 @@ function App() {
 
   return (
     <div className="App" onScroll={handleScroll}>
+      <h1>Scroll me!</h1>
       <div className="inner"></div>
     </div>
   );
